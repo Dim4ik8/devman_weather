@@ -1,8 +1,19 @@
 import requests
 
-list_of_places = ['london', 'svo', 'cherepovets']
 
-response_london = requests.get("https://wttr.in/london?lang=ru&M&n&q&T")
+def main():
+    location = ['london', 'svo', 'cherepovets']
 
-for place in list_of_places:
-    print(requests.get(f"https://wttr.in/{place}?lang=ru&M&n&q&T").text)
+    payload = {'lang': 'ru', 'T': '', 'M': '', 'n': '', 'q': '', }
+
+    try:
+        for place in location:
+            response = requests.get(f"https://wttr.in/{place}", params=payload)
+            print(response.text)
+
+    except requests.exceptions.HTTPError:
+        print('Ошибка запроса, пожалуйста проверьте данные!')
+
+
+if __name__ == '__main__':
+    main()
