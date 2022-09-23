@@ -2,17 +2,18 @@ import requests
 
 
 def main():
-    location = ['london', 'svo', 'cherepovets']
+    places = ['london', 'svo', 'cherepovets']
 
     payload = {'lang': 'ru', 'T': '', 'M': '', 'n': '', 'q': '', }
 
-    try:
-        for place in location:
-            response = requests.get(f"https://wttr.in/{place}", params=payload)
+    for place in places:
+        response = requests.get(f"https://wttr.in/{place}", params=payload)
+        if response.status_code == 200:
             print(response.text)
 
-    except requests.exceptions.HTTPError:
-        print('Ошибка запроса, пожалуйста проверьте данные!')
+        else:
+            print('Ошибка запроса, пожалуйста проверьте данные!')
+            break
 
 
 if __name__ == '__main__':
