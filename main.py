@@ -4,7 +4,7 @@ import requests
 def main():
     places = ['london', 'svo', 'cherepovets']
 
-    payload = {'lang': 'ru', 'T': '', 'M': '', 'n': '', 'q': '', }
+    payload = {'lang': 'ru', 'T': '', 'M': '', 'q': '', 'n': ''}
 
     for place in places:
         response = requests.get(f"https://wttr.in/{place}", params=payload)
