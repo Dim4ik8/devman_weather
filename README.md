@@ -9,21 +9,8 @@
 Для корректной работы скрипта необходимо установить зависимости
 > pip install -r requirements.txt
 
-### Текст скрипта достаточно простой
-
-    places = ['london', 'svo', 'cherepovets']
-
-    payload = {'lang': 'ru', 'T': '', 'M': '', 'n': '', 'q': '', }
-
-    for place in places:
-        response = requests.get(f"https://wttr.in/{place}", params=payload)
-        if response.status_code == 200:
-            print(response.text)
-
-        else:
-            print('Ошибка запроса, пожалуйста проверьте данные!')
-            break
-
+### Запуск скрипта производится следующей командой
+> python main.py
 ### Результат работы скрипта выводится в терминал
 ![](example.png)
      

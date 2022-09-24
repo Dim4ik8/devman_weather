@@ -8,7 +8,7 @@ def main():
 
     for place in places:
         response = requests.get(f"https://wttr.in/{place}", params=payload)
-        if response.status_code == 200:
+        if response.ok:
             print(response.text)
 
         else:
